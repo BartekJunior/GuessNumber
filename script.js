@@ -20,26 +20,20 @@ const infoLow = `Too low!`;
 
 
 
-
-
 check.addEventListener(`click`, function () {
     let guess = document.querySelector(`.guess`).value;
     guess = Number(guess);
 
     if (guess) {
         if (guess > secretNumber) {
-            message.innerHTML = `Too high!`;
-            score = score - 1;
-            scoreDiv.innerHTML = score;
+            checkWin(infoHigh);
 
         } else if (guess < secretNumber) {
-            message.innerHTML = `Too low!`;
-            score = score - 1;
-            scoreDiv.innerHTML = score;
+            checkWin(infoLow);
+        
         } else if (guess === secretNumber) {
             message.innerHTML = `You won! Secret number is ${secretNumber}`;
             document.querySelector(`body`).style.backgroundColor = `#60b347`;
-
 
             if (score > highScore) {
                 localStorage.setItem(`highKey`, score);
@@ -54,9 +48,14 @@ check.addEventListener(`click`, function () {
 highScoreDiv.innerHTML = localStorage.getItem(`highKey`);
 
 
-
 const again = document.querySelector(`.again`);
 again.addEventListener(`click`, function() {
+    window.location.reload();
+})
+
+const reset = document.querySelector(`.reset`);
+reset.addEventListener(`click`, function() {
+    localStorage.clear();
     window.location.reload();
 })
 
