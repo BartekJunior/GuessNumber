@@ -30,7 +30,7 @@ check.addEventListener(`click`, function () {
 
         } else if (guess < secretNumber) {
             checkWin(infoLow);
-        
+
         } else if (guess === secretNumber) {
             message.innerHTML = `You won! Secret number is ${secretNumber}`;
             document.querySelector(`body`).style.backgroundColor = `#60b347`;
@@ -49,12 +49,12 @@ highScoreDiv.innerHTML = localStorage.getItem(`highKey`);
 
 
 const again = document.querySelector(`.again`);
-again.addEventListener(`click`, function() {
+again.addEventListener(`click`, function () {
     window.location.reload();
 })
 
 const reset = document.querySelector(`.reset`);
-reset.addEventListener(`click`, function() {
+reset.addEventListener(`click`, function () {
     localStorage.clear();
     window.location.reload();
 })
